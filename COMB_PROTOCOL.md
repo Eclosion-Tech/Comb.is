@@ -4,7 +4,7 @@
 
 **Status:** Experimental · Phase F0 only · Not a production interoperability promise  
 **Canonical home:** `comb.is`  
-**Reference implementation:** Fellowship (`fellowship.so`)  
+**First complete product implementation:** Fellowship (`fellowship.so`)<br>
 **Specification license:** [CC BY 4.0](LICENSES/CC-BY-4.0.txt)  
 **Last updated:** 2026-07-17
 
@@ -52,7 +52,7 @@ Comb v0 does not define:
 |---|---|
 | **Supporter** | Authenticates with an Issuer and authorizes disclosure of an entitlement. |
 | **Creator** | Defines Tiers and Benefits and delegates one or more Issuers to speak for it. |
-| **Issuer** | Maintains Grants, authenticates Supporters, and signs Comb claims. A Fellowship instance is an Issuer. |
+| **Issuer** | Maintains Grants, authenticates Supporters, and signs Comb claims. Fellowship is one implementation; products such as Worm or Studious may implement their own Issuers without depending on Fellowship. |
 | **Consumer** | A service that requests and verifies a claim to grant access. In OAuth/OIDC terms it is a Client and Resource Server. |
 | **Operator** | Runs an Issuer. An Operator is not automatically trusted for every Creator. |
 
@@ -320,22 +320,22 @@ Comb defines a different layer:
 
 Possible future composition:
 
-1. an x402 payment settles and Fellowship creates a one-time or time-bounded Grant;
+1. an x402 payment settles and an Issuer creates a one-time or time-bounded Grant;
 2. Comb distributes that resulting entitlement to authorized Consumers; or
 3. a Consumer accepts a Comb Benefit from members and offers x402 as a nonmember pay-per-use fallback.
 
-The x402 payment proof MUST NOT be treated as a Comb entitlement without an Issuer creating a Grant, and Comb MUST NOT require a wallet. Wallet and on-chain support remain outside Fellowship v1.
+The x402 payment proof MUST NOT be treated as a Comb entitlement without an Issuer creating a Grant, and Comb MUST NOT require a wallet. Wallet and on-chain support remain outside Comb v0.
 
 ## 15. Phase F0 laboratory
 
-F0 uses two Fellowship instances with separate databases, keys, base URLs, and configuration.
+F0 uses two product-neutral Comb participants with separate state, keys, base URLs, and configuration. The Issuer and Consumer may be small laboratory implementations; neither depends on Fellowship or any other product-private API.
 
 ### Required demonstration
 
-1. Start instances A and B from documented commands.
+1. Start Issuer A and Consumer B from documented commands.
 2. Create Creator C and a Creator document delegating authority to A.
-3. Register a Consumer associated with B.
-4. Configure B's Consumer to trust exactly `(C, A)`.
+3. Register B as a Consumer at A.
+4. Configure B to trust exactly `(C, A)`.
 5. Create Supporter S and active Grant G on A.
 6. From the Consumer, complete OIDC authorization against A and receive a Comb token.
 7. Verify that Benefit X unlocks the Consumer.
@@ -377,7 +377,7 @@ F0 may use local shortcuts only when they are explicit, isolated, and impossible
 6. Issuer selection UX when a supporter has accounts on multiple instances.
 7. Proof and consent model for cross-creator bundles.
 8. Conformance suites and the minimum supported OIDC profile.
-9. Whether a generic Comb implementation may issue claims from non-Fellowship Grant sources.
+9. How partial implementations advertise whether they support Issuer, Consumer, or both roles.
 
 ## 18. Versioning
 

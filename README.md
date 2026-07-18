@@ -8,6 +8,8 @@ Comb is an open protocol for portable patronage entitlements. It lets a service 
 
 Comb is experimental. The current document is a laboratory draft, not a production interoperability promise.
 
+Fellowship is the first complete patronage product built on Comb, not a required identity provider or network hub. Other products can own their billing, supporter identity, Grants, and UX while implementing Comb directly.
+
 ## Run the laboratory
 
 Requirements: Node.js 22 or newer and pnpm 10.
