@@ -31,6 +31,7 @@ Comb v0 does not define:
 - a public issuer registry or reputation system;
 - cross-creator bundles;
 - content hosting, fulfillment, messaging, or analytics;
+- JWE-encrypted claims or DPoP-bound tokens in the core v0 profile;
 - instantaneous offline-token revocation.
 
 **Federate the entitlements. Never federate the money.**
@@ -265,6 +266,8 @@ Consumers MUST NOT log raw tokens, place them in URLs, expose them to browser an
 ## 11. Expiry, lapse, and revocation
 
 Comb v0 entitlement tokens are short-lived bearer credentials. They are **not instantly revocable**.
+
+The core v0 profile uses signed JWS bearer tokens. JWE encryption and DPoP proof-of-possession may be explored as optional profiles after F0; Consumers MUST NOT require either for baseline v0 interoperability.
 
 - When a Grant lapses or is revoked, the Issuer stops including it in newly issued tokens.
 - An already issued token may remain usable until `exp`.

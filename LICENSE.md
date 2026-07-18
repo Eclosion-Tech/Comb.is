@@ -9,6 +9,7 @@ This repository is distributed under multiple licenses according to path. A more
 | Path | SPDX identifier | License |
 |---|---|---|
 | `COMB_PROTOCOL.md`, `README.md`, and root documentation | `CC-BY-4.0` | Creative Commons Attribution 4.0 International |
+| Root workspace, build, and test configuration | `Apache-2.0` | Apache License 2.0 |
 | `packages/**`, `conformance/**`, and `examples/**` | `Apache-2.0` | Apache License 2.0 |
 | `apps/reference-fellowship/**` | `AGPL-3.0-or-later` | GNU Affero General Public License v3.0 or later |
 

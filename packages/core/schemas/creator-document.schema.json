@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://comb.is/schema/v0.1/creator-document",
+  "title": "Comb Creator Document",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["comb_version", "creator", "display_name", "issuers"],
+  "properties": {
+    "comb_version": { "const": "0.1" },
+    "creator": { "type": "string", "format": "uri" },
+    "display_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "issuers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "issuer",
+          "creator_ref",
+          "not_before",
+          "not_after"
+        ],
+        "properties": {
+          "issuer": { "type": "string", "format": "uri" },
+          "creator_ref": { "type": "string", "minLength": 1 },
+          "not_before": { "type": "string", "format": "date-time" },
+          "not_after": {
+            "oneOf": [
+              { "type": "string", "format": "date-time" },
+              { "type": "null" }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://comb.is/schema/v0.1/discovery",
+  "title": "Comb Issuer Discovery Document",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "comb_version",
+    "issuer",
+    "authorization_endpoint",
+    "token_endpoint",
+    "jwks_uri",
+    "openid_configuration",
+    "claim_signing_alg_values_supported",
+    "scopes_supported"
+  ],
+  "properties": {
+    "comb_version": { "const": "0.1" },
+    "issuer": { "type": "string", "format": "uri" },
+    "authorization_endpoint": { "type": "string", "format": "uri" },
+    "token_endpoint": { "type": "string", "format": "uri" },
+    "jwks_uri": { "type": "string", "format": "uri" },
+    "openid_configuration": { "type": "string", "format": "uri" },
+    "claim_signing_alg_values_supported": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "contains": { "const": "RS256" },
+      "items": { "const": "RS256" }
+    },
+    "scopes_supported": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "allOf": [
+        { "contains": { "const": "openid" } },
+        { "contains": { "const": "comb:entitlements" } }
+      ],
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

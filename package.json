@@ -1,0 +1,21 @@
+{
+  "name": "comb",
+  "version": "0.1.0-lab.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.28.1",
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=10"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "test": "pnpm run build && vitest run",
+    "typecheck": "tsc -b && tsc -p conformance/tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.1",
+    "typescript": "7.0.2",
+    "vitest": "4.1.10"
+  }
+}

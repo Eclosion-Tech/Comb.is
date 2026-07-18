@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://comb.is/schema/v0.1/entitlement-claims",
+  "title": "Comb Entitlement JWT Claims",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "iss",
+    "sub",
+    "aud",
+    "client_id",
+    "iat",
+    "exp",
+    "jti",
+    "comb"
+  ],
+  "properties": {
+    "iss": { "type": "string", "format": "uri" },
+    "sub": { "type": "string", "minLength": 1 },
+    "aud": { "type": "string", "format": "uri" },
+    "client_id": { "type": "string", "minLength": 1 },
+    "iat": { "type": "integer", "minimum": 0 },
+    "exp": { "type": "integer", "minimum": 1 },
+    "jti": { "type": "string", "minLength": 1 },
+    "comb": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "grants"],
+      "properties": {
+        "version": { "const": "0.1" },
+        "grants": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "creator", "benefits", "valid_until"],
+            "properties": {
+              "id": { "type": "string", "minLength": 1 },
+              "creator": { "type": "string", "format": "uri" },
+              "benefits": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": { "type": "string", "minLength": 1 }
+              },
+              "valid_until": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

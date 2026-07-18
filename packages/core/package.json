@@ -1,0 +1,17 @@
+{
+  "name": "@comb-is/core",
+  "version": "0.1.0-lab.0",
+  "type": "module",
+  "sideEffects": false,
+  "files": ["dist", "schemas"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "license": "Apache-2.0"
+}

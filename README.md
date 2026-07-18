@@ -8,6 +8,16 @@ Comb is an open protocol for portable patronage entitlements. It lets a service 
 
 Comb is experimental. The current document is a laboratory draft, not a production interoperability promise.
 
+## Run the laboratory
+
+Requirements: Node.js 22 or newer and pnpm 10.
+
+    pnpm install
+    pnpm typecheck
+    pnpm test
+
+The current executable slice publishes JSON Schemas for discovery, creator delegation, and entitlement claims; issues RS256 laboratory tokens; verifies their signature, audience, client, lifetime, creator delegation, and required Benefit; and exercises expiry and signing-key rotation through the conformance suite.
+
 ## Repository map
 
 - [`COMB_PROTOCOL.md`](COMB_PROTOCOL.md) — protocol draft and F0 acceptance criteria

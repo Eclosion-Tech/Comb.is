@@ -1,0 +1,14 @@
+{
+  "name": "@comb-is/conformance",
+  "version": "0.1.0-lab.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@comb-is/consumer": "workspace:*",
+    "@comb-is/core": "workspace:*",
+    "@comb-is/issuer": "workspace:*",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1"
+  },
+  "license": "Apache-2.0"
+}

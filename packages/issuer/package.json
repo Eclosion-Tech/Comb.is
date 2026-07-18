@@ -1,0 +1,21 @@
+{
+  "name": "@comb-is/issuer",
+  "version": "0.1.0-lab.0",
+  "type": "module",
+  "sideEffects": false,
+  "files": ["dist"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "@comb-is/core": "workspace:*",
+    "jose": "6.2.3"
+  },
+  "license": "Apache-2.0"
+}
