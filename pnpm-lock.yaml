@@ -36,6 +36,18 @@ importers:
         specifier: 3.0.1
         version: 3.0.1(ajv@8.20.0)
 
+  examples/lab:
+    dependencies:
+      '@comb-is/consumer':
+        specifier: workspace:*
+        version: link:../../packages/consumer
+      '@comb-is/issuer':
+        specifier: workspace:*
+        version: link:../../packages/issuer
+      jose:
+        specifier: 6.2.3
+        version: 6.2.3
+
   packages/consumer:
     dependencies:
       '@comb-is/core':

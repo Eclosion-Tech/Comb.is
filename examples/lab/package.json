@@ -1,0 +1,17 @@
+{
+  "name": "@comb-is/lab",
+  "version": "0.1.0-lab.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -b",
+    "start": "node --enable-source-maps dist/index.js",
+    "test": "node --test dist/lab.test.js"
+  },
+  "dependencies": {
+    "@comb-is/consumer": "workspace:*",
+    "@comb-is/issuer": "workspace:*",
+    "jose": "6.2.3"
+  },
+  "license": "Apache-2.0"
+}

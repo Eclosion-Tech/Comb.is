@@ -3,6 +3,7 @@
   "references": [
     { "path": "./packages/core" },
     { "path": "./packages/issuer" },
-    { "path": "./packages/consumer" }
+    { "path": "./packages/consumer" },
+    { "path": "./examples/lab" }
   ]
 }
