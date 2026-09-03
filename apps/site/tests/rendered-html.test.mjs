@@ -53,4 +53,13 @@ test("removes all disposable starter UI and metadata", async () => {
   await assert.rejects(
     access(new URL("../app/_sites-preview", templateRoot)),
   );
+  for (const leftover of [
+    "app/chatgpt-auth.ts",
+    "db",
+    "examples/d1",
+    "drizzle.config.ts",
+  ]) {
+    await assert.rejects(access(new URL(leftover, templateRoot)));
+  }
+  assert.doesNotMatch(packageJson, /drizzle/);
 });
